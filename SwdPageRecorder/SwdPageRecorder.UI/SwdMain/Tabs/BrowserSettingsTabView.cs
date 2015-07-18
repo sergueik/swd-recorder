@@ -60,7 +60,7 @@ namespace SwdPageRecorder.UI
         private void HandleRemoteDriverSettingsEnabledStatus()
         {
             grpRemoteConnection.DoInvokeAction(
-                    () => grpRemoteConnection.Enabled = chkUseRemoteHub.Checked);
+                    () => { grpRemoteConnection.Enabled = chkUseRemoteHub.Checked; grpDesiredCaps.Enabled = chkUseRemoteHub.Checked; });
 
             ChangeBrowsersList(chkUseRemoteHub.Checked);
         }
@@ -183,7 +183,22 @@ namespace SwdPageRecorder.UI
 
         private void tabPage2_Enter(object sender, System.EventArgs e)
         {
+            InitializeDataGridView();
 
+        }
+
+        private void InitializeDataGridView()
+        {
+            string[] row1 = new string[] { "Meatloaf", "Main Dish", "ground beef",
+            "**" };
+            string[] row2 = new string[] { "Chocolate Cheesecake", "Dessert", 
+            "cream cheese", "***" };
+
+            object[] rows = new object[] { row1, row2 };
+            foreach (string[] rowArray in rows)
+            {
+                dtAdditonalCapabilities.Rows.Add(rowArray);
+            }
         }
 
         private void tabPage1_Enter(object sender, System.EventArgs e)
