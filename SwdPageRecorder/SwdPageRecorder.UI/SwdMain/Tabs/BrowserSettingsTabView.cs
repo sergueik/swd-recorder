@@ -16,15 +16,15 @@ namespace SwdPageRecorder.UI
 {
     public partial class BrowserSettingsTabView : UserControl, IView
     {
-        public BrowserSettingsTabPresenter Presenter {get; private set;}
+        public BrowserSettingsTabPresenter Presenter { get; private set; }
         private Control[] driverControls;
-                
+
         public BrowserSettingsTabView()
         {
             InitializeComponent();
             Presenter = Presenters.BrowserSettingsTabPresenter;
             Presenter.InitWithView(this);
-                        
+
             HandleRemoteDriverSettingsEnabledStatus();
 
             driverControls = new Control[] { chkUseRemoteHub, grpRemoteConnection, ddlBrowserToStart };
@@ -37,7 +37,7 @@ namespace SwdPageRecorder.UI
 
         private void SetDesiredCapsAvailability(bool enabled)
         {
-            grpDesiredCaps.DoInvokeAction( () => grpDesiredCaps.Enabled = enabled);
+            grpDesiredCaps.DoInvokeAction(() => grpDesiredCaps.Enabled = enabled);
         }
 
         private void btnStartWebDriver_Click(object sender, EventArgs e)
@@ -54,13 +54,13 @@ namespace SwdPageRecorder.UI
             };
 
 
-            Presenter.StartNewBrowser(browserOptions, startSeleniumServerIfNotStarted, shouldMaximizeBrowserWindow); 
+            Presenter.StartNewBrowser(browserOptions, startSeleniumServerIfNotStarted, shouldMaximizeBrowserWindow);
         }
 
         private void HandleRemoteDriverSettingsEnabledStatus()
         {
             grpRemoteConnection.DoInvokeAction(
-                    () => grpRemoteConnection.Enabled = chkUseRemoteHub.Checked); 
+                    () => grpRemoteConnection.Enabled = chkUseRemoteHub.Checked);
 
             ChangeBrowsersList(chkUseRemoteHub.Checked);
         }
@@ -112,7 +112,7 @@ namespace SwdPageRecorder.UI
             }
             HandleRemoteDriverSettingsEnabledStatus();
         }
-        
+
         internal void DriverIsStopping()
         {
             SetControlsState("Start", true);
@@ -127,7 +127,7 @@ namespace SwdPageRecorder.UI
 
         internal void DisableDriverStartButton()
         {
-            btnStartWebDriver.DoInvokeAction( () =>  btnStartWebDriver.Enabled = false);
+            btnStartWebDriver.DoInvokeAction(() => btnStartWebDriver.Enabled = false);
         }
 
         internal void EnableDriverStartButton()
@@ -139,11 +139,6 @@ namespace SwdPageRecorder.UI
         {
 
             lblWebDriverStatus.DoInvokeAction(() => lblWebDriverStatus.Text = status);
-        }
-
-        private void btnLoadCapabilities_Click(object sender, EventArgs e)
-        {
-            Presenter.LoadCapabilities();
         }
 
         private void btnTestRemoteHub_Click(object sender, EventArgs e)
@@ -186,6 +181,16 @@ namespace SwdPageRecorder.UI
             btnStartWebDriver.DoInvokeAction(() => btnStartWebDriver.PerformClick());
         }
 
+        private void tabPage2_Enter(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Enter(object sender, System.EventArgs e)
+        {
+            Presenter.LoadCapabilities();
+        }
+
         private void lnkSeleniumDownloadPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(@"http://docs.seleniumhq.org/download/");
@@ -197,7 +202,7 @@ namespace SwdPageRecorder.UI
             {
                 chkMaximizeBrowserWindow.Enabled = false;
             });
-            
+
         }
 
         internal void EnableMaximizeBrowserChackBox()
