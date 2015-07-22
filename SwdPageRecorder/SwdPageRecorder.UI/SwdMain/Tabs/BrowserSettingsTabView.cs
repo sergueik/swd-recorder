@@ -40,6 +40,70 @@ namespace SwdPageRecorder.UI
             grpDesiredCaps.DoInvokeAction(() => grpDesiredCaps.Enabled = enabled);
         }
 
+        public class vendorBrowser
+        {
+            public string browser;
+            public string version;
+            public string platform;
+        }
+
+        private void seleniumVendor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            var dtVendorCapabilities = new Dictionary<string, Dictionary<string, Object>>();
+            dtVendorCapabilities.Add("Sauce Labs", new Dictionary<string, Object>{ {"capabilities" ,  new Dictionary<string,string>{
+        {"username" , "<USERNAME>"},
+        {"accessKey" ,"<ACCESSKEY>"}}},{"hub_url" ,"http://ondemand.saucelabs.com:80/wd/hub/" },{ "help_url" , "https://www.browserstack.com/automate/c-sharp#configure-capabilities"},
+   {       "platform" , "linux" },
+   {       "browser" , "chrome"},
+       {   "version" , "35"},
+
+    });
+
+
+            dtVendorCapabilities.Add("TestingBot", new Dictionary<string, Object>{ {"capabilities" ,  new Dictionary<string,string>{
+        {"username" , "<USERNAME>"},
+        {"accesskey" ,"<ACCESSKEY>"}}},{"hub_url" ,"" },{ "help_url" , "https://testingbot.com/features"},
+   {       "platform" , "<PLATFORM>" },
+   {       "browser" , "<BROWSER>"},
+       {   "version" , "<VERSION>"},
+
+    });
+
+            dtVendorCapabilities.Add("BrowserStack", new Dictionary<string, Object>{ {"capabilities" ,  new Dictionary<string,string>{
+        {"browserstack.user" , "<BROWSERSTACK.USER>"},
+        {"browserstack.key" ,"<BROWSERSTACK.KEY>"}}},{"hub_url" ,"http://hub.browserstack.com/wd/hub/" },{ "help_url" , "https://www.browserstack.com/automate/c-sharp#configure-capabilities"},
+   {       "platform" , "<PLATFORM>" },
+   {       "browser" , "<BROWSER>"},
+       {   "version" , "<VERSION>"},
+
+    });
+            string vendor = cbSeleniumVendor.SelectedItem.ToString();
+            if (dtVendorCapabilities.ContainsKey(vendor))
+            {
+                // fill dtAdditonalCapabilities DataGridView with vendor-specific inputs
+                dtAdditonalCapabilities.Rows.Clear();
+                foreach (var configuration_input in new String[] { "browser", "platform", "version" })
+                {
+                    dtAdditonalCapabilities.Rows.Add(new String[] { configuration_input, dtVendorCapabilities[vendor][configuration_input].ToString()});
+                }
+                
+                Object capabilities_input_object;
+                dtVendorCapabilities[vendor].TryGetValue("capabilities", out capabilities_input_object);
+                 Dictionary<string, string> capabilities_input = new Dictionary<string,string> ();
+                 try
+                 {
+                     capabilities_input = capabilities_input_object as Dictionary<string, string>;
+                 }
+                 catch (Exception) { /* ignore */}
+                
+                foreach (string capability_name in capabilities_input.Keys) {
+                    dtAdditonalCapabilities.Rows.Add(new String[] { capability_name, capabilities_input[capability_name].ToString() });
+                }
+
+            }
+        }
+
         private void btnStartWebDriver_Click(object sender, EventArgs e)
         {
             var isRemoteDriver = chkUseRemoteHub.Checked;

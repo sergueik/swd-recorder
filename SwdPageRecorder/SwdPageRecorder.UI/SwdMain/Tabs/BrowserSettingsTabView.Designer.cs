@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrowserSettingsTabView));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrowserSettingsTabView));
             this.label3 = new System.Windows.Forms.Label();
             this.chkUseRemoteHub = new System.Windows.Forms.CheckBox();
             this.grpRemoteConnection = new System.Windows.Forms.GroupBox();
@@ -47,6 +47,8 @@
             this.ddlBrowserToStart = new System.Windows.Forms.ComboBox();
             this.grdDesiredCapabilities = new System.Windows.Forms.PropertyGrid();
             this.dtAdditonalCapabilities = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpDesiredCaps = new System.Windows.Forms.GroupBox();
             this.tabControl10 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -56,8 +58,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lnkSeleniumDownloadPage = new System.Windows.Forms.LinkLabel();
             this.chkMaximizeBrowserWindow = new System.Windows.Forms.CheckBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbSeleniumVendor = new System.Windows.Forms.ComboBox();
             this.grpRemoteConnection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtAdditonalCapabilities)).BeginInit();
             this.grpDesiredCaps.SuspendLayout();
@@ -213,14 +214,32 @@
             this.dtAdditonalCapabilities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.dtAdditonalCapabilities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtAdditonalCapabilities.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtAdditonalCapabilities.Location = new System.Drawing.Point(3, 3);
             this.dtAdditonalCapabilities.Name = "dtAdditonalCapabilities";
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtAdditonalCapabilities.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtAdditonalCapabilities.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dtAdditonalCapabilities.Size = new System.Drawing.Size(659, 181);
+            this.dtAdditonalCapabilities.Size = new System.Drawing.Size(659, 160);
             this.dtAdditonalCapabilities.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Capability";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Value";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // grpDesiredCaps
             // 
@@ -249,6 +268,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cbSeleniumVendor);
             this.tabPage2.Controls.Add(this.dtAdditonalCapabilities);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -323,23 +343,20 @@
             this.chkMaximizeBrowserWindow.Text = "Maximize browser window";
             this.chkMaximizeBrowserWindow.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn1
+            // cbSeleniumVendor
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Capability";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Value";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbSeleniumVendor.BackColor = System.Drawing.SystemColors.Menu;
+            this.cbSeleniumVendor.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cbSeleniumVendor.FormattingEnabled = true;
+            this.cbSeleniumVendor.Items.AddRange(new object[] {
+            "Sauce Labs",
+            "BrowserStack",
+            "TestingBot"});
+            this.cbSeleniumVendor.Location = new System.Drawing.Point(3, 163);
+            this.cbSeleniumVendor.Name = "cbSeleniumVendor";
+            this.cbSeleniumVendor.Size = new System.Drawing.Size(659, 21);
+            this.cbSeleniumVendor.TabIndex = 15;
+            this.cbSeleniumVendor.SelectedIndexChanged += new System.EventHandler(this.seleniumVendor_SelectedIndexChanged);
             // 
             // BrowserSettingsTabView
             // 
@@ -399,6 +416,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.ComboBox cbSeleniumVendor;
 
     }
 }
