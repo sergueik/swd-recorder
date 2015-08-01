@@ -144,6 +144,9 @@
     <Compile Include="SwdMain\Popups\BrowserScreenView.Designer.cs">
       <DependentUpon>BrowserScreenView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SwdMain\Panels\CapabilitiesDataGrid.Designer.cs">
+      <DependentUpon>SwdMain\Panels\CapabilitiesDataGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="SwdMain\Popups\Presenters\SwitchToPopupPresenter.cs" />
     <Compile Include="SwdMain\Tabs\PlayGroundView.cs">
       <SubType>UserControl</SubType>
@@ -168,6 +171,12 @@
     <Compile Include="SwdMain\Tabs\BrowserSettingsTabView.Designer.cs">
       <DependentUpon>BrowserSettingsTabView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SwdMain\Panels\CapabilitiesDataGrid.resx">
+      <DependentUpon>CapabilitiesDataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwdMain\Tabs\BrowserSettingsTabView.resx">
+      <DependentUpon>BrowserSettingsTabView.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="SwdMain\Tabs\Model\DesiredCapabilitiesData.cs" />
     <Compile Include="SwdMain\Tabs\Presenters\BrowserSettingsTabPresenter.cs" />
     <Compile Include="SwdMain\CSharpPageObjectGenerator.cs" />
@@ -176,6 +185,10 @@
     <Compile Include="SwdMain\SwdMainView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SwdMain\Panels\CapabilitiesDataGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SwdMain\Panels\Presenters\CapabilitiesDataGridPresenter.cs" />
     <Compile Include="SwdMain\SwdMainView.Designer.cs">
       <DependentUpon>SwdMainView.cs</DependentUpon>
     </Compile>
@@ -235,9 +248,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SwdMain\SwdMainView.resx">
       <DependentUpon>SwdMainView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SwdMain\Tabs\BrowserSettingsTabView.resx">
-      <DependentUpon>BrowserSettingsTabView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SwdMain\Tabs\PlayGroundView.resx">
       <DependentUpon>PlayGroundView.cs</DependentUpon>

@@ -100,6 +100,17 @@ namespace SwdPageRecorder.UI
             }
         }
 
+		
+		
+		        private static CapabilitiesDataGridPresenter _capabilitiesDataGridPresenter = null;
+        public static CapabilitiesDataGridPresenter CapabilitiesDataGridPresenter
+        {
+            get
+            {
+                return (_capabilitiesDataGridPresenter = _capabilitiesDataGridPresenter ?? new CapabilitiesDataGridPresenter());
+            }
+        }
+
     }
 }
 
